@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Produk - Urban Kicks</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Urban Kicks</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html" class="active">Produk</a></li>
+        <li><a href="cart.html">Keranjang</a></li>
+        <li><a href="about.html">Tentang Kami</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="products-page">
+    <section class="filter-bar">
+      <button onclick="filterProducts('all')">
+        <img src="asset-gambar/all.jpeg" alt="Semua Produk" title="Semua" />
+      </button>
+      <button onclick="filterProducts('oldskool')">
+        <img src="asset-gambar/oldskool.jpeg" alt="Old Skool" title="Old Skool" />
+      </button>
+      <button onclick="filterProducts('sk8hi')">
+        <img src="asset-gambar/sk8hi.jpeg" alt="Sk8-Hi" title="Sk8-Hi" />
+      </button>
+      <button onclick="filterProducts('slipon')">
+        <img src="asset-gambar/slipon.jpeg" alt="Slip-On" title="Slip-On" />
+      </button>
+      <button onclick="filterProducts('knuskool')">
+        <img src="asset-gambar/knuskool.jpeg" alt="Knu Skool" title="Knu Skool" />
+      </button>
+    </section>
+
+    <section class="product-list" id="product-list">
+      <!-- Produk-produk akan muncul di sini -->
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-contact">
+      <p>Hubungi Kami:</p>
+      <p>
+        <a href="https://wa.me/6283119541413" target="_blank" rel="noopener noreferrer">WhatsApp</a> |
+        <a href="https://www.instagram.com/urbankicks.casualfootwear/" target="_blank" rel="noopener noreferrer">Instagram</a> |
+        <a href="mailto:urbankicks88@gmail.com">Email</a>
+      </p>
+    </div>
+    <p>&copy; 2025 Urban Kicks. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const products = [
+      {
+        name: "Vans Knu Skool",
+        price: 699000,
+        type: "knuskool",
+        image: "asset-gambar/Knu-Skool-Shoe.avif",
+        desc: "Tampil kece dengan gaya klasik yang nggak lekang oleh waktu."
+      },
+      {
+        name: "Vans Old Skool",
+        price: 710000,
+        type: "oldskool",
+        image: "asset-gambar/Old-Skool-Shoe.avif",
+        desc: "Sepatu legend yang cocok buat nongkrong atau jalan santai."
+      },
+      {
+        name: "Vans Sk8-Hi",
+        price: 820000,
+        type: "sk8hi",
+        image: "asset-gambar/Sk8Hi-Shoe.avif",
+        desc: "Model high-top keren buat lo yang suka gaya sporty dan beda."
+      },
+      {
+        name: "Vans Classic Slip-On",
+        price: 655000,
+        type: "slipon",
+        image: "asset-gambar/Classic-SlipOn-Checkerboard-Shoe.avif",
+        desc: "Tinggal selop, langsung jalan. Simpel, nyaman, dan tetap stylish."
+      },
+      {
+        name: "Vans Old Skool Putih",
+        price: 730000,
+        type: "oldskool",
+        image: "asset-gambar/Old-Skool-Canvas-Shoe.avif",
+        desc: "Clean banget! Warna putihnya bikin cocok ke semua outfit lo."
+      },
+      {
+        name: "Vans Sk8-Hi 2",
+        price: 825000,
+        type: "sk8hi",
+        image: "asset-gambar/Sk8Hi-Shoe grey.avif",
+        desc: "Tinggi, keren, dan nyaman buat dipake seharian."
+      },
+      {
+        name: "Vans Slip-On Full Black",
+        price: 660000,
+        type: "slipon",
+        image: "asset-gambar/Classic-SlipOn-Checkerboard-Shoe full black.avif",
+        desc: "Checkerboard vibes! Slip-on yang bikin lo makin standout."
+      },
+      {
+        name: "Vans Knu Skool Checkerboard",
+        price: 705000,
+        type: "knuskool",
+        image: "asset-gambar/Knu-Skool-Checkerboard-Shoe.avif",
+        desc: "Perpaduan gaya old school dan motif kekinian. Wajib koleksi!"
+      }
+    ];
+
+    function renderProducts(type = "all") {
+      const container = document.getElementById("product-list");
+      container.innerHTML = "";
+
+      const filtered = type === "all" ? products : products.filter(p => p.type === type);
+
+      filtered.forEach(p => {
+        const item = document.createElement("article");
+        item.className = `product-item ${p.type}`;
+        item.innerHTML = `
+          <img src="${p.image}" alt="${p.name}" />
+          <h3>${p.name}</h3>
+          <p>${p.desc}</p>
+          <p>Harga: Rp${p.price.toLocaleString("id-ID")}</p>
+          <button onclick="addToCart('${p.name}', ${p.price}, '${p.image}')">Beli Sekarang</button>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function filterProducts(type) {
+      renderProducts(type);
+    }
+
+    function addToCart(name, price, image) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, price, image });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${name} telah ditambahkan ke keranjang!`);
+    }
+
+      function getQueryParam(param) {
+          const urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get(param);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+          const typeFromUrl = getQueryParam("type");
+          if (typeFromUrl) {
+              renderProducts(typeFromUrl);
+          } else {
+              renderProducts();
+          }
+      });
+
+  </script>
+</body>
+</html>

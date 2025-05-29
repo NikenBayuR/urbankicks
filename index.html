@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Urban Kicks</title>
+    <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="logo">Urban Kicks</div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html">Produk</a></li>
+                <li><a href="cart.html">Keranjang</a></li>
+                <li><a href="about.html">Tentang Kami</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-content">
+            <h1>EXPLORE THE NEW KICKS</h1>
+            <p>Jelajahi koleksi terbaru kami dan temukan gaya khasmu.</p>
+            <a href="products.html" class="cta-btn">Belanja Sekarang</a>
+        </div>
+    </section>
+
+    <!-- Highlight Section -->
+    <section class="highlight-grid">
+        <div class="highlight-card" onclick="goToProduct('slipon')">
+            <img src="asset-gambar/product-home-slipon.avif" alt="Vans Classic Slip-On" />
+            <h3>SHOP Vans Classic Slip-On</h3>
+        </div>
+        <div class="highlight-card" onclick="goToProduct('knuskool')">
+            <img src="asset-gambar/product-home-knuskool.avif" alt="Vans Knu Skool" />
+            <h3>SHOP VANS KNU SKOOL</h3>
+        </div>
+        <div class="highlight-card" onclick="goToProduct('oldskool')">
+            <img src="asset-gambar/product-home-oldskool.avif" alt="Vans Old Skool" />
+            <h3>SHOP VANS OLD SKOOL</h3>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-contact">
+            <p>Hubungi Kami:</p>
+            <p>
+                <a href="https://wa.me/6283119541413" target="_blank" rel="noopener noreferrer">WhatsApp</a> |
+                <a href="https://www.instagram.com/urbankicks.casualfootwear/" target="_blank" rel="noopener noreferrer">Instagram</a> |
+                <a href="mailto:urbankicks88@gmail.com">Email</a>
+            </p>
+        </div>
+        <p>&copy; 2025 Urban Kicks. All rights reserved.</p>
+    </footer>
+
+    <!-- Script Gambar Slideshow -->
+    <script>
+        const hero = document.getElementById('hero');
+        const images = [
+            "https://assets.vans.com/image/upload/c_limit,w_1920/q_auto:best,f_auto:image,d_na.png/v1747854931/SP25_LP_Homepage_Desktop_LilUzi_05222025_1440x906_Image",
+            "https://assets.vans.com/image/upload/c_limit,w_1920/q_auto:best,f_auto:image,d_na.png/v1747871678/SP25_Homepage_TextModule-04_05222025_Desktop_720x450_Image",
+            "https://assets.vans.com/image/upload/c_limit,w_1920/q_auto:best,f_auto:image,d_na.png/v1746056083/SP25_Homepage-A_TextModule-02_05012025_Desktop_720x450_Image",
+            "https://assets.vans.com/image/upload/q_auto:best,f_auto:image,d_na.png/v1746645321/SP25_PLP_Kids_eSpot1x1-01_05082025_Desktop_458x673_Image"
+        ];
+        let index = 0;
+
+        setInterval(() => {
+            index = (index + 1) % images.length;
+            hero.style.backgroundImage = `url('${images[index]}')`;
+        }, 3000); // Ganti gambar setiap 3 detik
+
+        function goToProduct(type) {
+            window.location.href = `products.html?type=${type}`;
+        }
+    </script>
+</body>
+</html>

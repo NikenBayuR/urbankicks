@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pesanan Berhasil - Urban Kicks</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <div class="logo">Urban Kicks</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Produk</a></li>
+                <li><a href="cart.html">Keranjang</a></li>
+                <li><a href="about.html">Tentang Kami</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="success-container">
+            <div class="success-icon">✅</div>
+            <h2>Pesanan Berhasil!</h2>
+            <p class="success-details">
+                Terima kasih telah berbelanja di <strong>Urban Kicks</strong>.<br />
+                Pesanan Anda sedang kami proses dan akan segera dikirim.<br />
+                Rincian dan nomor resi akan dikirim ke kontak Anda.
+            </p>
+
+            <div class="order-info">
+                <p><strong>Nama Pembeli:</strong> <span id="buyerName">-</span></p>
+                <p><strong>Metode Pembayaran:</strong> <span id="paymentMethod">-</span></p>
+                <p><strong>Nomor Pesanan:</strong> <span id="orderNumber">#-</span></p>
+            </div>
+
+            <div class="success-actions">
+                <a href="index.html">Kembali ke Beranda</a>
+                <a href="products.html">Lanjut Belanja</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-contact">
+            <p>Hubungi Kami:</p>
+            <p>
+                <a href="https://wa.me/6283119541413" target="_blank">WhatsApp</a> |
+                <a href="https://instagram.com/urbankicks" target="_blank">Instagram</a> |
+                <a href="mailto:support@urbankicks.com">Email</a>
+            </p>
+        </div>
+        <p>&copy; 2025 Urban Kicks. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Ambil data dari localStorage
+        const buyerName = localStorage.getItem('buyerName') || '-';
+        const paymentMethod = localStorage.getItem('paymentMethod') || '-';
+
+        // Generate nomor pesanan acak
+        const randomOrder = 'UK' + Math.floor(100000 + Math.random() * 900000);
+
+        // Tampilkan data ke HTML
+        document.getElementById('buyerName').textContent = buyerName;
+        document.getElementById('paymentMethod').textContent = paymentMethod;
+        document.getElementById('orderNumber').textContent = '#' + randomOrder;
+
+        // (Opsional) Kosongkan keranjang setelah sukses
+        localStorage.removeItem('cartItems');
+    </script>
+</body>
+</html>

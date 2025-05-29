@@ -1,0 +1,148 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #222;
+    background-color: #fff;
+}
+
+/* Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid #ddd;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #0077cc;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+    .main-nav a:hover,
+    .main-nav a.active {
+        color: #0077cc;
+    }
+
+/* Hero Section */
+.hero-section {
+    background: url('https://assets.vans.com/image/upload/c_limit,w_1920/q_auto:best,f_auto:image,d_na.png/v1747854931/SP25_LP_Homepage_Desktop_LilUzi_05222025_1440x906_Image') no-repeat center center/cover;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    transition: background-image 1s ease-in-out;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+.cta-btn {
+    background-color: #e60023;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+    .cta-btn:hover {
+        background-color: #c2001b;
+    }
+
+/* Highlight Section */
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 60px 40px;
+}
+
+.highlight-card {
+    text-align: center;
+    cursor: pointer;
+}
+
+    .highlight-card img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+    }
+
+    .highlight-card:hover img {
+        transform: scale(1.05);
+    }
+
+    .highlight-card h3 {
+        font-size: 1.2em;
+        color: #111;
+    }
+
+/* Footer */
+.main-footer {
+    background-color: #fafafa; /* warna sangat terang & bersih */
+    color: #666666; /* abu gelap soft untuk teks */
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 0.95em;
+    border-top: 1px solid #ddd; /* garis tipis pemisah */
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0.02em;
+}
+
+.main-footer p {
+    margin: 0;
+}
+
+.main-footer a {
+    color: #0077cc; /* warna link biru kalem */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.main-footer a:hover {
+    color: #005fa3; /* warna link hover lebih gelap */
+    text-decoration: underline;
+}
+
+

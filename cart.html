@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keranjang - Urban Kicks</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <div class="logo">Urban Kicks</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Produk</a></li>
+                <li><a href="cart.html" class="active">Keranjang</a></li>
+                <li><a href="about.html">Tentang Kami</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="cart-page">
+        <h2>Keranjang Belanja</h2>
+        <div id="cartItems"></div>
+        <p><strong>Total: Rp<span id="totalHarga">0</span></strong></p>
+        <button id="checkoutButton">Checkout</button>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-contact">
+            <p>Hubungi Kami:</p>
+            <p>
+                <a href="https://wa.me/6283119541413" target="_blank">WhatsApp</a> |
+                <a href="https://instagram.com/urbankicks" target="_blank">Instagram</a> |
+                <a href="mailto:support@urbankicks.com">Email</a>
+            </p>
+        </div>
+        <p>&copy; 2025 Urban Kicks. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartItemsContainer = document.getElementById("cartItems");
+        const totalHargaSpan = document.getElementById("totalHarga");
+
+        function renderCart() {
+            cartItemsContainer.innerHTML = "";
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = "<p>Keranjang kosong.</p>";
+            } else {
+                cart.forEach((item, index) => {
+                    const itemDiv = document.createElement("div");
+                    itemDiv.className = "cart-item";
+                    itemDiv.innerHTML = `
+                        <img src="${item.image || 'assets/default.jpg'}" alt="${item.name}" />
+                        <div class="cart-details">
+                            <p><strong>${item.name}</strong></p>
+                            <p>Harga: Rp${item.price.toLocaleString()}</p>
+                            <button class="remove-btn" data-index="${index}">Hapus</button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(itemDiv);
+                    total += item.price;
+                });
+            }
+
+            totalHargaSpan.textContent = total.toLocaleString();
+            attachDeleteHandlers();
+        }
+
+        function attachDeleteHandlers() {
+            const removeButtons = document.querySelectorAll(".remove-btn");
+            removeButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const index = this.dataset.index;
+                    cart.splice(index, 1);
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    renderCart();
+                });
+            });
+        }
+
+        renderCart();
+
+        // Tombol checkout
+        document.getElementById("checkoutButton").addEventListener("click", function () {
+            if (cart.length === 0) {
+                alert("Keranjang masih kosong!");
+            } else {
+                window.location.href = "checkout.html";
+            }
+        });
+    </script>
+
+</body>
+</html>
