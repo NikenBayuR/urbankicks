@@ -583,6 +583,157 @@ button#checkoutButton {
             background-color: #c0392b;
         }
 
+/* Blog page specific styles */
+
+/* Container utama blog */
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Judul halaman */
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #222;
+}
+
+/* Section blog posts */
+.blog-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* Setiap artikel/postingan */
+.post {
+    background-color: #f8f8f8;
+    padding: 1.8rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    /* Hover efek artikel */
+    .post:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 6px 16px rgb(0 0 0 / 0.15);
+    }
+
+    /* Judul artikel */
+    .post h2 {
+        font-size: 1.6rem;
+        margin-bottom: 0.4rem;
+        color: #222;
+    }
+
+/* Meta data (penulis & tanggal) */
+.post-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+/* Isi artikel ringkas */
+.post p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+/* Tombol 'Baca Selengkapnya' */
+.read-more {
+    display: inline-block;
+    font-weight: 600;
+    color: #0066cc;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+    .read-more:hover {
+        color: #004999;
+        border-color: #004999;
+    }
+
+/* Responsive untuk layar kecil */
+@media (max-width: 600px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .post {
+        padding: 1.5rem 1.5rem;
+    }
+
+        .post h2 {
+            font-size: 1.3rem;
+        }
+}
+
+
+/* Artikel Gambar Utama */
+.featured-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Tata letak halaman artikel */
+.article-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    color: #333;
+}
+
+    .article-container h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #222;
+        text-align: center;
+    }
+
+    .article-container .post-meta {
+        font-size: 0.9em;
+        color: #777;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .article-container p {
+        margin-bottom: 1.5em;
+        text-align: justify;
+    }
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .article-container {
+        padding: 0 10px;
+    }
+
+        .article-container h1 {
+            font-size: 1.5em;
+        }
+}
+
+
 /* Footer */
 .main-footer {
     background-color: #fafafa; /* warna sangat terang & bersih */
