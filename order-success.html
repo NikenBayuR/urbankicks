@@ -68,7 +68,9 @@
         document.getElementById('orderNumber').textContent = '#' + randomOrder;
 
         // (Opsional) Kosongkan keranjang setelah sukses
-        localStorage.removeItem('cartItems');
+        localStorage.removeItem('cart');
+        localStorage.removeItem('buyerName');
+        localStorage.removeItem('paymentMethod');
     </script>
 </body>
 </html>

@@ -129,20 +129,18 @@ body {
     letter-spacing: 0.02em;
 }
 
-.main-footer p {
-    margin: 0;
-}
+    .main-footer p {
+        margin: 0;
+    }
 
-.main-footer a {
-    color: #0077cc; /* warna link biru kalem */
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
+    .main-footer a {
+        color: #0077cc; /* warna link biru kalem */
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
 
-.main-footer a:hover {
-    color: #005fa3; /* warna link hover lebih gelap */
-    text-decoration: underline;
-}
-
-
+        .main-footer a:hover {
+            color: #005fa3; /* warna link hover lebih gelap */
+            text-decoration: underline;
+        }
